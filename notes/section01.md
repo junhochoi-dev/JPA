@@ -241,10 +241,19 @@ Member member = memberDAO.find(memberId);
 Team team = member.getTeam();
 String teamName = team.getName();
 ```
+```sql
+SELECT * FROM MEMBER
+SELECT * FROM TEAM
+```
 3. 지연 로딩(Lazy Loading) + 즉시 로딩(Eager Loading)
    - 즉시 로딩: JOIN SQL로 한번에 연관된 객체까지 미리 조회
 ```java
 Member member = memberDAO.find(memberId);
 Team team = member.getTeam();
 String teamName = team.getName();
+```
+```sql
+SELECT M.*, T.* 
+FROM MEMBER
+JOIN TEAM …
 ```
