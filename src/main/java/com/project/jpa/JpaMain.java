@@ -1,6 +1,7 @@
 package com.project.jpa;
 
 import javax.persistence.*;
+import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -12,25 +13,14 @@ public class JpaMain {
         tx.begin();
 
         try{
-            // Create
-//            Member member = new Member();
-//            member.setId(3L);
-//            member.setName("TEST");
-//            em.persist(member);
+            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+                    .setFirstResult(2) // 시작 index
+                    .setMaxResults(3) // paging
+                    .getResultList();
 
-            // Read
-//            Member findMember = em.find(Member.class, 1L);
-//            System.out.println("findMember.id \t\t = " + findMember.getId());
-//            System.out.println("findMember.name \t = " + findMember.getName());
-
-            // Update
-//            Member findMember = em.find(Member.class, 2L);
-//            findMember.setName("HelloJPA");
-
-            // Delete
-//            Member findMember = em.find(Member.class, 1L);
-//            em.remove(findMember);
-
+            for(Member member : result){
+                System.out.println(member.getId() + " " + member.getName());
+            }
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
