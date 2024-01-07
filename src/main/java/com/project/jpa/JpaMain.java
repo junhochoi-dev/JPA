@@ -12,11 +12,24 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Member member = new Member();
-            member.setId(3L);
-            member.setName("TEST");
+            // Create
+//            Member member = new Member();
+//            member.setId(3L);
+//            member.setName("TEST");
+//            em.persist(member);
 
-            em.persist(member);
+            // Read
+//            Member findMember = em.find(Member.class, 1L);
+//            System.out.println("findMember.id \t\t = " + findMember.getId());
+//            System.out.println("findMember.name \t = " + findMember.getName());
+
+            // Update
+//            Member findMember = em.find(Member.class, 2L);
+//            findMember.setName("HelloJPA");
+
+            // Delete
+//            Member findMember = em.find(Member.class, 1L);
+//            em.remove(findMember);
 
             tx.commit();
         } catch (Exception e) {
