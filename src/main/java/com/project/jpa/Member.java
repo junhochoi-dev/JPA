@@ -4,9 +4,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@TableGenerator(
+        name = "MEMBER_SEQ_GENERATOR",
+        table = "MY_SEQUENCES",
+        pkColumnName = "MEMBER_SEQ",
+        allocationSize = 1)
 public class Member {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     @Column(name = "name")
     private String username;
     private Integer age;
@@ -22,7 +28,7 @@ public class Member {
     public Member() {
     }
 
-    public Member(Long id, String username, Integer age, RoleType roleType, Date createdDate, Date lastModifiedDate, String description) {
+    public Member(Integer id, String username, Integer age, RoleType roleType, Date createdDate, Date lastModifiedDate, String description) {
         this.id = id;
         this.username = username;
         this.age = age;
@@ -32,7 +38,7 @@ public class Member {
         this.description = description;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -60,7 +66,7 @@ public class Member {
         this.description = description;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

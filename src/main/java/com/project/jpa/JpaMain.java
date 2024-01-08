@@ -1,7 +1,6 @@
 package com.project.jpa;
 
 import javax.persistence.*;
-import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -13,12 +12,13 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Member member = new Member();
-            member.setId(1L);
-            member.setUsername("A");
-            member.setRoleType(RoleType.USER);
+            Member member1 = new Member();
+            Member member2 = new Member();
+            member1.setRoleType(RoleType.USER);
+            member2.setRoleType(RoleType.ADMIN);
 
-            em.persist(member);
+            em.persist(member1);
+            em.persist(member2);
 
             tx.commit();
         } catch (Exception e) {
