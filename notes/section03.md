@@ -202,5 +202,3 @@ em.clear();
 
 Member member2 = em.find(Member.class, 300L);
 ```
-
-test
