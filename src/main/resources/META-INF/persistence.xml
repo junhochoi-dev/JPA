@@ -24,7 +24,7 @@
             <!-- 기존테이블 삭제 후 다시 생성 (DROP + CREATE) -->
             <!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
             <!-- 변경분만 반영(운영DB에는 사용하면 안됨) -->
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
 
         </properties>
     </persistence-unit>
