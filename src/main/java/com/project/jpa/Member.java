@@ -1,40 +1,90 @@
 package com.project.jpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "Member")
 public class Member {
     @Id
     private Long id;
-
-    //@Column(name = "NAME")
-    private String name;
+    @Column(name = "name")
+    private String username;
+    private Integer age;
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModifiedDate;
+    @Lob
+    private String description;
 
     public Member() {
     }
 
-    public Member(Long id, String name) {
+    public Member(Long id, String username, Integer age, RoleType roleType, Date createdDate, Date lastModifiedDate, String description) {
         this.id = id;
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
+        this.username = username;
+        this.age = age;
+        this.roleType = roleType;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
+        this.description = description;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public void setRoleType(RoleType roleType) {
+        this.roleType = roleType;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public RoleType getRoleType() {
+        return roleType;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

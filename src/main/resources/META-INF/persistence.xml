@@ -20,7 +20,12 @@
             <property name="hibernate.use_sql_comments" value="true"/>
             <!-- 1차 캐시 저장되는 Query 양 / 다차면 쿼리를 DB에 보냄-->
             <property name="hibernate.jdbc.batch_size" value="10"/>
-            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+
+            <!-- 기존테이블 삭제 후 다시 생성 (DROP + CREATE) -->
+            <!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
+            <!-- 변경분만 반영(운영DB에는 사용하면 안됨) -->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+
         </properties>
     </persistence-unit>
 </persistence>
