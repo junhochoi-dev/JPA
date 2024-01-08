@@ -13,14 +13,14 @@ public class JpaMain {
         tx.begin();
 
         try{
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(2) // 시작 index
-                    .setMaxResults(3) // paging
-                    .getResultList();
 
-            for(Member member : result){
-                System.out.println(member.getId() + " " + member.getName());
+            Member member = em.find(Member.class, 150L);
+            member.setName("ZZZZZ");
+
+            if(member.getName().equals("ZZZZZ")){
+                em.persist(member);
             }
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
